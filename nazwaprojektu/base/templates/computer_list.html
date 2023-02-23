@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Lista komputerów</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nazwa</th>
+        <th>Stan</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for computer in computers %}
+        <tr>
+          <td><a href="{% url 'computer_detail' computer.pk %}">{{ computer.name }}</a></td>
+          {% if computer.status %}
+            <td style="background-color: green;"></td>
+          {% else %}
+            <td style="background-color: grey;"></td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

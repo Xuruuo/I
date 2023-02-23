@@ -1,0 +1,11 @@
+{% extends 'computer_management/base.html' %}
+
+{% block content %}
+  <h1>Edit Computer {{ computer.name }}</h1>
+  <form method="post">
+    <a href="{% url 'computer_edit' pk=computer.pk %}">Edytuj</a>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save changes</button>
+  </form>
+{% endblock %}

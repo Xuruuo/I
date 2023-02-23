@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Detale pokoju {{ room.name }}</h1>
+  <ul>
+    {% for computer in computers %}
+      <li><a href="{% url 'computer_detail' pk=computer.pk %}">{{ computer.name }}</a></li>
+    {% empty %}
+      <li>Brak komputerów w tym pokoju.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'computer_add' room_pk=room.pk %}">Dodaj komputer</a>
+{% endblock %}

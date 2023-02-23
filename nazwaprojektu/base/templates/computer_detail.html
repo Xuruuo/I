@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ computer.name }}</h1>
+  <p>IP: {{ computer.ip }}</p>
+  <p>Procesor: {{ computer.processor }}</p>
+  <p>Aplikacje: {{ computer.applications }}</p>
+  {% if computer.status %}
+    <p>Stan: Włączony</p>
+  {% else %}
+    <p>Stan: Wyłączony</p>
+  {% endif %}
+  <a href="{% url 'computer_edit' computer.pk %}">Edytuj</a>
+  <a href="{% url 'computer_delete' pk=computer.pk %}" class="btn btn-danger btn-sm">
+    <i class="fas fa-trash-alt"></i> Usuń
+</a>
+{% endblock %}
